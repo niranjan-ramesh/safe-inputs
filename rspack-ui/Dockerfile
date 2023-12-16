@@ -18,7 +18,7 @@ RUN npm run build
 # 2. For Nginx setup
 FROM docker.io/library/nginx:alpine
 
-RUN chown -R nginx:nginx /var/cache/nginx /var/run/ 
+RUN chown -R 1000:1000 /var/cache/nginx /var/run/ 
 
 # Copy config nginx
 COPY --from=build /app/.nginx/nginx.conf /etc/nginx/conf.d/default.conf
